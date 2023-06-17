@@ -1,30 +1,39 @@
 import crypto = require('crypto');
 import { readFileSync, writeFileSync } from 'fs';
+import { saveError } from '../../bird/handler';
 
 const algorithm = 'aes-256-cbc';
 const ivLength = 16;
 
 export async function encrypt(message: string, key: string) {
-  const iv = crypto.randomBytes(ivLength);
-  const keyBuffer = Buffer.from(key, 'hex');
-  const cipher = crypto.createCipheriv(algorithm, keyBuffer, iv);
-  let encrypted = cipher.update(message, 'utf8', 'hex');
-  encrypted += cipher.final('hex');
-  return iv.toString('hex') + ':' + encrypted;
+  try {
+    const iv = crypto.randomBytes(ivLength);
+    const keyBuffer = Buffer.from(key, 'hex');
+    const cipher = crypto.createCipheriv(algorithm, keyBuffer, iv);
+    let encrypted = cipher.update(message, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
+    return iv.toString('hex') + ':' + encrypted;
+  } catch (err) {
+    saveError('encrypt', err, 'error');
+  }
 }
 
 export async function decrypt(message: string, key: string) {
-  const components = message.split(':');
-  // @ts-ignore: Works fine with it
-  const iv = Buffer.from(components.shift(), 'hex');
-  const encryptedText = Buffer.from(components.join(':'), 'hex');
-  const keyBuffer = Buffer.from(key, 'hex');
-  const decipher = crypto.createDecipheriv(algorithm, keyBuffer, iv);
-  // @ts-ignore: Works fine with it
-  let decrypted = decipher.update(encryptedText, 'hex', 'utf8');
-  // @ts-ignore: Works fine with it
-  decrypted += decipher.final('utf8');
-  return decrypted;
+  try {
+    const components = message.split(':');
+    // @ts-ignore: Works fine with it
+    const iv = Buffer.from(components.shift(), 'hex');
+    const encryptedText = Buffer.from(components.join(':'), 'hex');
+    const keyBuffer = Buffer.from(key, 'hex');
+    const decipher = crypto.createDecipheriv(algorithm, keyBuffer, iv);
+    // @ts-ignore: Works fine with it
+    let decrypted = decipher.update(encryptedText, 'hex', 'utf8');
+    // @ts-ignore: Works fine with it
+    decrypted += decipher.final('utf8');
+    return decrypted;
+  } catch (err) {
+    saveError('decrypt', err, 'error');
+  }
 }
 
 export async function encryptFile(path: string, key: string, iv: Buffer) {
@@ -36,6 +45,7 @@ export async function encryptFile(path: string, key: string, iv: Buffer) {
     
     writeFileSync(path, encryptedBuffer);
   } catch (err) {
+    saveError('encryptFile', err, 'error');
     console.error(err);
     return;
   }
@@ -51,6 +61,7 @@ export async function decryptFile(path: string, key: string, iv: string) {
     
     writeFileSync(path, decryptedData);
   } catch (err) {
+    saveError('decryptFile', err, 'error');
     console.error(err);
     return;
   }
@@ -67,6 +78,7 @@ export async function decryptFileData(fileData: any, key: string, iv: string) {
 
     return decryptedData;
   } catch (err) {
+    saveError('decryptFileData', err, 'error');
     return {
       message: "An error occurred while decrypting the file, please try again",
     };

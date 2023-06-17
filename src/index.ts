@@ -39,4 +39,5 @@ import File from './models/file';
 import Message from './models/message';
 import TempToken from './models/tempToken';
 import User from './models/user';
-export { AppPassword, File, Message, TempToken, User };
+import FunctionErrLog from './models/functionErrLog';
+export { AppPassword, File, Message, TempToken, User, FunctionErrLog };

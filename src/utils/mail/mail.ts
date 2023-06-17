@@ -1,5 +1,6 @@
 "use strict";
 import f from "cross-fetch";
+import { saveError } from "../../bird/handler";
 
 module.exports.SolunApiClient = class {
   baseurl: any;
@@ -43,6 +44,7 @@ module.exports.SolunApiClient = class {
           local_part: mailbox.local_part,
           quota: mailbox.quota,
         };
+      saveError("addMailbox", j, "error");
       console.error(j);
       return false;
     });
@@ -63,6 +65,7 @@ module.exports.SolunApiClient = class {
     }).then(async (res: { json: () => Promise<any> }) => {
       const j = await res.json().catch();
       if (j && j[0] && j[0].type === "success") return true;
+      saveError("deleteMailbox", j, "error");
       console.error(j);
       return false;
     });
@@ -81,6 +84,7 @@ module.exports.SolunApiClient = class {
     const responseData = await response.json();
 
     if (response.status !== 200) {
+      saveError("updateMailbox", responseData, "error");
       throw new Error(
         `${response.status} ${
           responseData === undefined ? "" : JSON.stringify(responseData)
@@ -108,6 +112,7 @@ module.exports.SolunApiClient = class {
     if (responseData && responseData[0] && responseData[0].type === "success") {
       return true;
     } else {
+      saveError("rateLimitMailbox", responseData, "error");
       console.error(responseData);
       return false;
     }
@@ -130,6 +135,7 @@ module.exports.SolunApiClient = class {
       if (responseData && responseData[0] && responseData[0].type === "success") {
         return true;
       } else {
+        saveError("addAppPassword", responseData, "error");
         console.error(responseData);
         return false;
       }
@@ -152,6 +158,7 @@ module.exports.SolunApiClient = class {
       if (responseData && responseData[0] && responseData[0].type === "success") {
         return true;
       } else {
+        saveError("deleteAppPassword", responseData, "error");
         console.error(responseData);
         return false;
       }

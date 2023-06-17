@@ -1,12 +1,23 @@
 const bcrypt = require('bcryptjs');
+import { saveError } from '../../bird/handler';
 
 export async function hashPassword(password: string) {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-    return hashedPassword;
+    try {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+        return hashedPassword;
+    } catch (error) {
+        saveError('hashPassword', error, 'error');
+        return '';
+    }
 }
 
 export async function comparePassword(password: string, hashedPassword: string) {
-    const isMatch = await bcrypt.compare(password, hashedPassword);
-    return isMatch;
+    try {
+        const isMatch = await bcrypt.compare(password, hashedPassword);
+        return isMatch;
+    } catch (error) {
+        saveError('comparePassword', error, 'error');
+        return false;
+    }
 }
