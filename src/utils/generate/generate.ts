@@ -1,3 +1,4 @@
+import { saveError } from '@/src/bird/handler';
 import crypto = require('crypto');
 import { randomBytes } from 'crypto';
 import speakeasy = require("speakeasy");
@@ -16,6 +17,7 @@ export async function generateAES(){
 }
 
 export async function generateID(bruteforceSafe: boolean) {
+    saveError("generateID", "This function is deprecated", "warning");
     try {
         // if bruteforcesafe is false default length is 5, if true default length is 90
         let length = bruteforceSafe ? 90 : 5;
