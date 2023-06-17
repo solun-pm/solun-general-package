@@ -1,4 +1,3 @@
-
 // src: src/utils/encryption/clientEncryption.ts
 import { encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM } from './utils/encryption/clientEncryption';
 export { encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM };
@@ -34,3 +33,10 @@ export { extractContentOutsideTags };
 import { getFormattedDateWithTime, getFormattedDate } from './utils/date/format';
 export { getFormattedDateWithTime, getFormattedDate };
 
+// src: src/models
+import AppPassword from './models/appPasswords';
+import File from './models/file';
+import Message from './models/message';
+import TempToken from './models/tempToken';
+import User from './models/user';
+export { AppPassword, File, Message, TempToken, User };

@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt")
+const bcrypt = require('bcryptjs');
 
 export async function hashPassword(password: string) {
     const salt = await bcrypt.genSalt(10);
