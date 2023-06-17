@@ -1,0 +1,24 @@
+{
+  "name": "solun-general-package",
+  "version": "1.0.0",
+  "description": "This package is used for general administration of Solun utilities and other services used in Solun applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "files": ["lib/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solun-pm/solun-general-package.git"
+  },
+  "author": "Daniel Wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solun-pm/solun-general-package/issues"
+  },
+  "homepage": "https://github.com/solun-pm/solun-general-package#readme",
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
+}
