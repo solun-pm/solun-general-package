@@ -1,4 +1,4 @@
-import { saveError } from '@/src/bird/handler';
+import { saveError } from '../../bird/handler';
 import crypto = require('crypto');
 import { randomBytes } from 'crypto';
 import speakeasy = require("speakeasy");

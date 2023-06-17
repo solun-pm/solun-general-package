@@ -1,5 +1,5 @@
 // Used for connecting to the database
-import { saveError } from '@/src/bird/handler';
+import { saveError } from '../../bird/handler';
 import mongoose from 'mongoose';
 
 const MONGODB_URL = process.env.MONGODB_URL;
