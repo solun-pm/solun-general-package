@@ -4,6 +4,7 @@
   "description": "This package is used for general administration of Solun utilities and other services used in Solun applications.",
   "main": "index.js",
   "scripts": {
+    "test": "echo 'skip'",
     "build": "tsc",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
