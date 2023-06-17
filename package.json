@@ -26,6 +26,7 @@
   "homepage": "https://github.com/solun-pm/solun-general-package#readme",
   "devDependencies": {
     "@types/node": "^20.3.1",
+    "@types/react": "^18.2.12",
     "@types/speakeasy": "^2.0.7",
     "typescript": "^5.1.3"
   },
