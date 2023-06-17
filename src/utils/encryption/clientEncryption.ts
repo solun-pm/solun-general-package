@@ -29,3 +29,37 @@ export async function decryptTransfer(message: string) {
     decrypted += decipher.final('utf8');
     return decrypted;
 }
+
+export function encryptAuthPM(text: string, password: string) {
+    let iv = crypto.randomBytes(ivLength);
+    let cipher = crypto.createCipheriv(
+      algorithm,
+      crypto.createHash("sha256").update(password).digest(),
+      iv
+    );
+    let encrypted = cipher.update(text);
+    encrypted = Buffer.concat([encrypted, cipher.final()]);
+    return iv.toString("hex") + ":" + encrypted.toString("hex");
+  }
+  
+export function decryptAuthPM(text: string, password: string) {
+    try {
+      let textParts = text.split(":");
+      // @ts-ignore
+      let iv = Buffer.from(textParts.shift(), "hex");
+      let encryptedText = Buffer.from(textParts.join(":"), "hex");
+      let decipher = crypto.createDecipheriv(
+        algorithm,
+        crypto.createHash("sha256").update(password).digest(),
+        iv
+      );
+      let decrypted = decipher.update(encryptedText);
+      decrypted = Buffer.concat([decrypted, decipher.final()]);
+      return decrypted.toString();
+    } catch (error) {
+      console.error(
+        "@utils/encryption.ts | Solun Auth Error - Decrypting | " + error
+      );
+      return "";
+    }
+  }
