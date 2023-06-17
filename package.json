@@ -1,6 +1,6 @@
 {
   "name": "solun-general-package",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package is used for general administration of Solun utilities and other services used in Solun applications.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "version": "git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/solun-pm/solun-general-package.git"
