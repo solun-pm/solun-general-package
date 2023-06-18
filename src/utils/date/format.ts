@@ -1,4 +1,4 @@
-import { saveError } from "../../bird/handler";
+import { saveError } from "solun-database-package";
 
 export function getFormattedDateWithTime(dateString: string): string {
     try {

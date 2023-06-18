@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-import { saveError } from '../../bird/handler';
+import { saveError } from "solun-database-package";
 
 export async function hashPassword(password: string) {
     try {

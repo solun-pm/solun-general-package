@@ -1,6 +1,6 @@
 "use strict";
 import f from "cross-fetch";
-import { saveError } from "../../bird/handler";
+import { saveError } from "solun-database-package";
 
 module.exports.SolunApiClient = class {
   baseurl: any;

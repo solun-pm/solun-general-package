@@ -1,4 +1,4 @@
-import { saveError } from "../../bird/handler";
+import { saveError } from "solun-database-package";
 import crypto = require("crypto");
 import { randomBytes } from "crypto";
 import speakeasy = require("speakeasy");

@@ -1,5 +1,5 @@
 // Used for encrypting and decrypting messages sent between the client and server
-import { saveError } from '../../bird/handler';
+import { saveError } from "solun-database-package";
 import crypto = require('crypto');
 
 const algorithm = 'aes-256-cbc';

@@ -3,12 +3,14 @@ import { encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM } from '
 export { encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM };
 
 // src: src/utils/database/dbConn.ts
-import dbConnect from './utils/database/dbConn';
-export { dbConnect };
+//import dbConnect from './utils/database/dbConn';
+//export { dbConnect };
+// ***** NOW UNDER THE | solun-database-package | PACKAGE *****
 
 // src: src/utils/database/dbUtils.ts
-import { findOneDocument, deleteOneDocument } from './utils/database/dbUtils';
-export { findOneDocument, deleteOneDocument };
+//import { findOneDocument, deleteOneDocument } from './utils/database/dbUtils';
+//export { findOneDocument, deleteOneDocument };
+// ***** NOW UNDER THE | solun-database-package | PACKAGE *****
 
 // src: src/utils/encryption/encryption.ts
 //import { encrypt, decrypt, encryptFile, decryptFile, decryptFileData } from './utils/encryption/encryption';
@@ -35,14 +37,16 @@ import { getFormattedDateWithTime, getFormattedDate } from './utils/date/format'
 export { getFormattedDateWithTime, getFormattedDate };
 
 // src: src/models
-import AppPassword from './models/appPasswords';
-import File from './models/file';
-import Message from './models/message';
-import TempToken from './models/tempToken';
-import User from './models/user';
-import FunctionErrLog from './models/functionErrLog';
-export { AppPassword, File, Message, TempToken, User, FunctionErrLog };
+//import AppPassword from './models/appPasswords';
+//import File from './models/file';
+//import Message from './models/message';
+//import TempToken from './models/tempToken';
+//import User from './models/user';
+//import FunctionErrLog from './models/functionErrLog';
+//export { AppPassword, File, Message, TempToken, User, FunctionErrLog };
+// ***** NOW UNDER THE | solun-database-package | PACKAGE *****
 
 // src: src/bird/handler
-import { saveError } from './bird/handler';
-export { saveError };
+//import { saveError } from './bird/handler';
+//export { saveError };
+// ***** NOW UNDER THE | solun-database-package | PACKAGE *****
