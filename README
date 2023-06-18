@@ -1,0 +1,18 @@
+Add a new version:
+npm version patch
+
+Publish to NPM:
+npm publish
+
+Workflow:
+
+**First commit all changes**
+
+Then add a new version with
+```
+npm version patch
+```
+Then publish to NPM with
+```
+npm publish
+```
