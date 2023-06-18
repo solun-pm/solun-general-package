@@ -1,5 +1,3 @@
-import { saveError } from "solun-database-package";
-
 export function extractContentOutsideTags(input: string): string[] {
     try {
         let regex = /([^<>]+)(?:<[^>]*>)?/g;
@@ -12,7 +10,6 @@ export function extractContentOutsideTags(input: string): string[] {
 
         return matches;
     } catch (err) {
-        saveError("extractContentOutsideTags", err, "error");
         return [];
     }
 }

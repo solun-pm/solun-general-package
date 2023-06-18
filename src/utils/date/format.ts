@@ -1,5 +1,3 @@
-import { saveError } from "solun-database-package";
-
 export function getFormattedDateWithTime(dateString: string): string {
     try {
         const date = new Date(dateString);
@@ -13,7 +11,6 @@ export function getFormattedDateWithTime(dateString: string): string {
         return `${day < 10 ? '0' : ''}${day}.${month < 10 ? '0' : ''}${month}.${year} ` +
             `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     } catch (err) {
-        saveError("getFormattedDateWithTime", err, "error");
         return dateString;
     }
 }
@@ -40,7 +37,6 @@ export function getFormattedDate(dateString: string): string {
             return `${day < 10 ? '0' : ''}${day}.${month < 10 ? '0' : ''}${month}.${year}`;
         }
     } catch (err) {
-        saveError("getFormattedDate", err, "error");
         return dateString;
     }
 }

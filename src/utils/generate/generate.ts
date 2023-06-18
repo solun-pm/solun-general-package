@@ -1,4 +1,3 @@
-import { saveError } from "solun-database-package";
 import crypto = require("crypto");
 import { randomBytes } from "crypto";
 import speakeasy = require("speakeasy");
@@ -10,7 +9,6 @@ export async function generateAES() {
     const key = crypto.randomBytes(32).toString("hex");
     return key;
   } catch (err) {
-    saveError("generateAES", err, "error");
     return {
       message:
         "An error occurred while generating the AES key, please try again",
@@ -31,7 +29,6 @@ export async function generateID(bruteforceSafe: boolean) {
     }
     return result;
   } catch (err) {
-    saveError("generateID", err, "error");
     return {
       message: "An error occurred while generating the ID, please try again",
     };
@@ -43,7 +40,6 @@ export async function generateIV() {
     const iv = crypto.randomBytes(16);
     return iv;
   } catch (err) {
-    saveError("generateIV", err, "error");
     return {
       message: "An error occurred while generating the IV, please try again",
     };
@@ -75,7 +71,6 @@ export async function generatePassword(length: number) {
 
     return password;
   } catch (err) {
-    saveError("generatePassword", err, "error");
     return {
       message:
         "An error occurred while generating the password, please try again",
@@ -92,7 +87,6 @@ export function generateToken() {
       .replace(/\//g, "1")
       .slice(0, 64);
   } catch (err) {
-    saveError("generateToken", err, "error");
     return {
       message: "An error occurred while generating the token, please try again",
     };
@@ -174,7 +168,6 @@ export async function generateTempToken(
 
     return redirectUrl;
   } catch (error) {
-    saveError("generateTempToken", error, "error");
     console.error(error);
     toast.error("Something went wrong");
     return 0;
@@ -185,7 +178,6 @@ export function generate2FASecretKey() {
   try {
     return speakeasy.generateSecret({ length: 20 }).base32;
   } catch (err) {
-    saveError("generate2FASecretKey", err, "error");
     return {
       message:
         "An error occurred while generating the 2FA secret key, please try again",

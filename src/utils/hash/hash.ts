@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-import { saveError } from "solun-database-package";
 
 export async function hashPassword(password: string) {
     try {
@@ -7,7 +6,6 @@ export async function hashPassword(password: string) {
         const hashedPassword = await bcrypt.hash(password, salt);
         return hashedPassword;
     } catch (error) {
-        saveError('hashPassword', error, 'error');
         return '';
     }
 }
@@ -17,7 +15,6 @@ export async function comparePassword(password: string, hashedPassword: string) 
         const isMatch = await bcrypt.compare(password, hashedPassword);
         return isMatch;
     } catch (error) {
-        saveError('comparePassword', error, 'error');
         return false;
     }
 }
