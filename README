@@ -1,12 +1,15 @@
-Add a new version:
-npm version patch
+# **Workflow:**
 
-Publish to NPM:
-npm publish
+Prepare the Build:
 
-Workflow:
+```
+npm run prepare
+```
 
-**First commit all changes**
+Then commit the changes with or via VSCode GUI:
+```
+git commit -S -m "Commit message"
+```
 
 Then add a new version with
 ```
