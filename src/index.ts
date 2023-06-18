@@ -11,8 +11,9 @@ import { findOneDocument, deleteOneDocument } from './utils/database/dbUtils';
 export { findOneDocument, deleteOneDocument };
 
 // src: src/utils/encryption/encryption.ts
-import { encrypt, decrypt, encryptFile, decryptFile, decryptFileData } from './utils/encryption/encryption';
-export { encrypt, decrypt, encryptFile, decryptFile, decryptFileData };
+//import { encrypt, decrypt, encryptFile, decryptFile, decryptFileData } from './utils/encryption/encryption';
+//export { encrypt, decrypt, encryptFile, decryptFile, decryptFileData };
+// ***** NOW UNDER THE | solun-server-encryption-package | PACKAGE *****
 
 // src: src/utils/generate/generate.ts
 import { generateAES, generateID, generateIV, generatePassword, generateToken, generateTempToken, generate2FASecretKey } from './utils/generate/generate';
@@ -41,3 +42,7 @@ import TempToken from './models/tempToken';
 import User from './models/user';
 import FunctionErrLog from './models/functionErrLog';
 export { AppPassword, File, Message, TempToken, User, FunctionErrLog };
+
+// src: src/bird/handler
+import { saveError } from './bird/handler';
+export { saveError };
