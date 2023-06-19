@@ -50,3 +50,6 @@ export { getFormattedDateWithTime, getFormattedDate };
 //import { saveError } from './bird/handler';
 //export { saveError };
 // ***** NOW UNDER THE | solun-database-package | PACKAGE *****
+
+import { checkUsername, checkPassword } from './utils/validation/user_login';
+export { checkUsername, checkPassword };
