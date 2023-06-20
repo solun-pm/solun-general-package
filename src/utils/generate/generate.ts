@@ -102,10 +102,8 @@ export async function generateTempToken(
   fast_login: boolean
 ) {
   try {
-    // @todo -> add fast login call from userDetails and check if enabled or not / then pwd passthrough or not
-
     const resCheck = await fetch(
-      `${process.env.NEXT_PUBLIC_API_DOMAIN}/api/user/jwt`, // @TODO -> work on this needed
+      `${process.env.NEXT_PUBLIC_API_DOMAIN}/user/jwt_details`,
       {
         method: "POST",
         headers: {
@@ -135,7 +133,7 @@ export async function generateTempToken(
       ? encryptAuthPM(password, e2eeSecretKey as string)
       : "";
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_DOMAIN}/api/db/saveTempToken`, // @TODO -> work on this needed
+      `${process.env.NEXT_PUBLIC_API_DOMAIN}/database/save_temp_token`, // @TODO -> work on this needed
       {
         method: "POST",
         headers: {
