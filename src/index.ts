@@ -27,8 +27,6 @@ import { hashPassword, comparePassword } from './utils/hash/hash';
 export { hashPassword, comparePassword };
 
 // src: src/utils/mail/mail.ts
-import SolunApiClient = require('./utils/mail/mail');
-export { SolunApiClient };
 import { extractContentOutsideTags } from './utils/mail/SenderName';
 export { extractContentOutsideTags };
 

@@ -1,7 +1,7 @@
 "use strict";
 import f from "cross-fetch";
 
-export class SolunApiClient {
+class SolunApiClient {
   baseurl: any;
   apikey: any;
   constructor(baseurl: any, apikey: any) {
@@ -158,3 +158,5 @@ export class SolunApiClient {
   }
 
 };
+
+export default SolunApiClient;
