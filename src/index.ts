@@ -26,9 +26,7 @@ export { generateAES, generateID, generateIV, generatePassword, generateToken, g
 import { hashPassword, comparePassword } from './utils/hash/hash';
 export { hashPassword, comparePassword };
 
-// src: src/utils/mail/mail.ts
-const { SolunApiClient } = require('./utils/mail/mail');
-export { SolunApiClient };
+// src: src/utils/mail/SenderName.ts
 import { extractContentOutsideTags } from './utils/mail/SenderName';
 export { extractContentOutsideTags };
 
