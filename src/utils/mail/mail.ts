@@ -1,7 +1,7 @@
 "use strict";
 import f from "cross-fetch";
 
-module.exports.SolunApiClient = class {
+export class SolunApiClient {
   baseurl: any;
   apikey: any;
   constructor(baseurl: any, apikey: any) {
