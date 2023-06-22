@@ -1,6 +1,6 @@
 // src: src/utils/encryption/clientEncryption.ts
-import { encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM } from './utils/encryption/clientEncryption';
-export { encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM };
+import { encrypt, decrypt, encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM } from './utils/encryption/clientEncryption';
+export { encrypt, decrypt, encryptTransfer, decryptTransfer, encryptAuthPM, decryptAuthPM };
 
 // src: src/utils/database/dbConn.ts
 //import dbConnect from './utils/database/dbConn';
