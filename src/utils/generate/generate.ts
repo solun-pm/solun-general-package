@@ -219,15 +219,13 @@ export function generateAliasName(): string {
     return Math.floor(Math.random() * 10000);
   };
 
-  let aliasName = '';
-  while (aliasName.length < 36 || aliasName.length > 40) {
-    const adjective = getRandomElement(adjectives);
-    const noun = getRandomElement(nouns);
-    const randomNumber = getRandomNumber();
-    aliasName = `${adjective}_${noun}_${randomNumber}`;
-    aliasName = aliasName.replace(/ /g, '_').replace(/-/g, '_').toLowerCase();
-    aliasName = capitalizeFirstLetter(aliasName);
-  }
+  const adjective = getRandomElement(adjectives);
+  const noun = getRandomElement(nouns);
+  const randomNumber = getRandomNumber();
+
+  let aliasName = `${adjective}_${noun}_${randomNumber}`;
+  aliasName = aliasName.replace(/ /g, '_').replace(/-/g, '_').toLowerCase();
+  aliasName = capitalizeFirstLetter(aliasName);
 
   return aliasName;
 }
