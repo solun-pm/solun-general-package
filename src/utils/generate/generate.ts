@@ -182,3 +182,52 @@ export function generate2FASecretKey() {
     };
   }
 }
+
+
+export function generateAliasName(): string {
+  const adjectives = [
+    'blue', 'green', 'happy', 'sunny', 'smart', 'brave', 'mellow', 'silent', 'fierce',
+    'bold', 'calm', 'kind', 'vivid', 'gentle', 'wild', 'daring', 'vibrant', 'playful',
+    'steady', 'graceful', 'radiant', 'blissful', 'tranquil', 'sparkling', 'serene', 'sleek',
+    'crimson', 'golden', 'silver', 'purple', 'teal', 'ebony', 'velvet', 'cobalt', 'azure',
+    'lush', 'amber', 'rustic', 'scarlet', 'marble', 'turquoise', 'jade', 'coral', 'copper',
+    'mystic', 'whispering', 'enchanting', 'soothing', 'melodic', 'celestial', 'harmonious',
+    'dreamy', 'glowing', 'ethereal', 'luminous', 'serendipitous', 'captivating', 'radiating',
+    'spellbinding', 'tranquility', 'enchanted', 'dazzling', 'blissful', 'harmonic', 'starlit'
+  ];
+
+  const nouns = [
+    'river', 'mountain', 'meadow', 'ocean', 'valley', 'forest', 'desert', 'garden', 'field',
+    'sunset', 'horizon', 'island', 'temple', 'castle', 'canyon', 'waterfall', 'cottage',
+    'moon', 'star', 'sun', 'breeze', 'wave', 'bird', 'flower', 'rainbow', 'rock', 'beach',
+    'dawn', 'glimmer', 'leaf', 'crystal', 'meadow', 'creek', 'pond', 'cave', 'wilderness',
+    'whisper', 'echo', 'dream', 'silence', 'wonder', 'serenity', 'happiness', 'paradise',
+    'magic', 'harmony', 'tranquility', 'reflection', 'journey', 'serenade', 'chime', 'bliss',
+    'horizon', 'symphony', 'cascade', 'melody', 'sapphire', 'twilight', 'zenith', 'embrace'
+  ];
+
+  const getRandomElement = (array: string[]) => {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+  };
+
+  const capitalizeFirstLetter = (word: string) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  };
+
+  const getRandomNumber = () => {
+    return Math.floor(Math.random() * 10000);
+  };
+
+  let aliasName = '';
+  while (aliasName.length < 36 || aliasName.length > 40) {
+    const adjective = getRandomElement(adjectives);
+    const noun = getRandomElement(nouns);
+    const randomNumber = getRandomNumber();
+    aliasName = `${adjective}_${noun}_${randomNumber}`;
+    aliasName = aliasName.replace(/ /g, '_').replace(/-/g, '_').toLowerCase();
+    aliasName = capitalizeFirstLetter(aliasName);
+  }
+
+  return aliasName;
+}
