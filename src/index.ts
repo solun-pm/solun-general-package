@@ -18,8 +18,8 @@ export { encrypt, decrypt, encryptTransfer, decryptTransfer, encryptAuthPM, decr
 // ***** NOW UNDER THE | solun-server-encryption-package | PACKAGE *****
 
 // src: src/utils/generate/generate.ts
-import { generateAES, generateID, generateIV, generatePassword, generateToken, generateTempToken, generate2FASecretKey, generateAliasName } from './utils/generate/generate';
-export { generateAES, generateID, generateIV, generatePassword, generateToken, generateTempToken, generate2FASecretKey, generateAliasName};
+import { generateAES, generateID, generateIV, generatePassword, generateToken, generateTempToken, generate2FASecretKey, generateAliasName, generateRecoveryCode } from './utils/generate/generate';
+export { generateAES, generateID, generateIV, generatePassword, generateToken, generateTempToken, generate2FASecretKey, generateAliasName, generateRecoveryCode };
 
 
 // src: src/utils/hash/hash.ts

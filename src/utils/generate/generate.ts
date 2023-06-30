@@ -229,3 +229,27 @@ export function generateAliasName(): string {
 
   return aliasName;
 }
+
+export function generateRecoveryCode(): string {
+  const wordList = [
+    'apple', 'banana', 'cherry', 'orange', 'strawberry', 'mango', 'peach', 'pineapple', 'pear', 'melon',
+    'raspberry', 'blueberry', 'grape', 'kiwi', 'lemon', 'lime', 'plum', 'watermelon', 'apricot', 'pomegranate',
+    'coconut', 'fig', 'grapefruit', 'guava', 'papaya', 'passionfruit', 'blackberry', 'nectarine', 'rhubarb',
+    'tangerine', 'avocado', 'cantaloupe', 'dragonfruit', 'elderberry', 'gooseberry', 'honeydew', 'jackfruit',
+    'kumquat', 'lychee', 'mandarin', 'quince', 'starfruit', 'ugli', 'yuzu', 'elephant', 'giraffe', 'zebra',
+    'lion', 'tiger', 'monkey', 'hippo', 'kangaroo', 'koala', 'panda', 'penguin', 'rhino', 'squirrel', 'turtle',
+    'crocodile', 'dolphin', 'octopus', 'shark', 'whale', 'bee', 'butterfly', 'ladybug', 'firefly', 'grasshopper',
+    'mosquito', 'scorpion', 'spider', 'cactus', 'sunflower', 'daisy', 'lily', 'orchid', 'rose', 'tulip', 'dandelion',
+    'rainbow', 'thunder', 'cloud', 'star', 'moon', 'sun', 'ocean', 'mountain', 'desert', 'forest', 'river', 'lake'
+  ];
+
+  const passphraseLength = 8;
+  const passphraseSeparator = '=';
+
+  const getRandomWord = () => wordList[Math.floor(Math.random() * wordList.length)];
+  const getRandomNumber = () => Math.floor(Math.random() * 100);
+
+  const passphrase = Array.from({ length: passphraseLength }, () => `${getRandomWord()}${getRandomNumber()}`).join(passphraseSeparator);
+
+  return passphrase;
+}
