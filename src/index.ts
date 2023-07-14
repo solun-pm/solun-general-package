@@ -34,6 +34,9 @@ export { extractContentOutsideTags };
 import { getFormattedDateWithTime, getFormattedDate } from './utils/date/format';
 export { getFormattedDateWithTime, getFormattedDate };
 
+import { formatBytes } from './utils/storage/format';
+export { formatBytes };
+
 // src: src/models
 //import AppPassword from './models/appPasswords';
 //import File from './models/file';
