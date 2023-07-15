@@ -54,3 +54,6 @@ export { formatBytes };
 
 import { checkUsername, checkPassword } from './utils/validation/user_login';
 export { checkUsername, checkPassword };
+
+import { isValidEmail } from './utils/validation/email';
+export { isValidEmail };
